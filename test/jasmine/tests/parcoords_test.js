@@ -668,8 +668,8 @@ describe('parcoords', function() {
 
             expect(tester.get()).toBe(false);
 
-            mouseEvent('mousemove', 324, 216);
-            mouseEvent('mouseover', 324, 216);
+            mouseEvent('mousemove', 315, 218);
+            mouseEvent('mouseover', 315, 218);
 
             window.setTimeout(function() {
 
