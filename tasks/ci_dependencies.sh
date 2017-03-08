@@ -12,6 +12,7 @@ case $CIRCLE_NODE_INDEX in
 
     # jasmine tests
     1)
+        npm run cibuild
         ;;
 
 esac
