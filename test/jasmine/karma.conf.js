@@ -130,9 +130,6 @@ func.defaultConfig = {
     }
 };
 
-// inject custom jasmine spec filter
-func.defaultConfig.files.push('./spec_filter.js');
-
 // Add lib/index.js to single-suite runs,
 // to avoid import conflicts due to plotly.js
 // circular dependencies.
