@@ -61,14 +61,8 @@ func.defaultConfig = {
     // N.B. this field is filled below
     files: [],
 
-    // ...
-    exclude: (
-        isCI ? [
-            'tests/mapbox_test.js',
-            'tests/gl2d_click_test.js',
-            'tests/parcoords_test.js'
-        ] : []
-    ),
+    // list of files / pattern to exclude
+    exclude: [],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
