@@ -21,4 +21,4 @@ dependencies:
 
 test:
   override:
-    - npm run citest-jasmine
+    - npm run test-jasmine
