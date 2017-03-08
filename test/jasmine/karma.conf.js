@@ -65,7 +65,8 @@ func.defaultConfig = {
     exclude: (
         isCI ? [
             'tests/mapbox_test.js',
-            'tests/gl2d_click_test.js'
+            'tests/gl2d_click_test.js',
+            'tests/parcoords_test.js'
         ] : []
     ),
 
