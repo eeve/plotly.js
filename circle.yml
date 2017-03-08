@@ -13,12 +13,11 @@ machine:
 
 dependencies:
   override:
-    - lsb_release -a
-    - google-chrome --version
     - npm install && npm dedupe && npm prune && npm install
     - npm ls || true
     - npm run pretest
+    - ./tasks/ci_dependencies.sh
 
 test:
   override:
-    - npm run test-jasmine
+    - ./tasks/ci_test.sh
