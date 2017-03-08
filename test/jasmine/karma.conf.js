@@ -148,8 +148,7 @@ if(isSingleSuiteRun) {
 else if(isRequireJSTest) {
     func.defaultConfig.files = [
         constants.pathToRequireJS,
-        constants.pathToRequireJSFixture,
-        testFileGlob
+        constants.pathToRequireJSFixture
     ];
 }
 else if(isIE9Test) {
