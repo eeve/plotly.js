@@ -15,8 +15,11 @@ dependencies:
   override:
     - npm install && npm dedupe && npm prune && npm install
     - npm ls || true
+    - eval $(node tasks/docker.js pull)
     - npm run pretest
-    - ./tasks/ci_dependencies.sh
+    - eval $(node tasks/docker.js run)
+    - npm run cibuild
+    - eval $(node tasks/docker.js setup)
 
 test:
   override:
