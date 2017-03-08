@@ -95,7 +95,7 @@ func.defaultConfig = {
     customLaunchers: {
         Chrome_WindowSized: {
             base: 'Chrome',
-            flags: ['--window-size=1035,617', '--ignore-gpu-blacklist', '--headless']
+            flags: ['--window-size=1035,617', '--ignore-gpu-blacklist']
         },
         Firefox_WindowSized: {
             base: 'Firefox',
