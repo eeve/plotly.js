@@ -128,16 +128,19 @@ func.defaultConfig = {
     }
 };
 
+// inject `window.isCI = true`
+if(isCI) {
+    func.defaultConfig.files.push('./assets/ci_mock.js');
+}
 
 // Add lib/index.js to single-suite runs,
 // to avoid import conflicts due to plotly.js
 // circular dependencies.
 if(isSingleSuiteRun) {
-    func.defaultConfig.files = [
+    func.defaultConfig.files.push(
         pathToJQuery,
-        pathToMain,
-        testFileGlob
-    ];
+        pathToMain
+    );
 
     func.defaultConfig.preprocessors[pathToMain] = ['browserify'];
     func.defaultConfig.preprocessors[testFileGlob] = ['browserify'];
@@ -154,20 +157,15 @@ else if(isIE9Test) {
     // to catch reference errors that could occur
     // when plotly.js is first loaded.
 
-    func.defaultConfig.files = [
-        './assets/ie9_mock.js',
-        testFileGlob
-    ];
-
+    func.defaultConfig.files.push('./assets/ie9_mock.js');
     func.defaultConfig.preprocessors[testFileGlob] = ['browserify'];
 }
 else {
-    func.defaultConfig.files = [
-        pathToJQuery,
-        testFileGlob
-    ];
-
+    func.defaultConfig.files.push(pathToJQuery);
     func.defaultConfig.preprocessors[testFileGlob] = ['browserify'];
 }
+
+// lastly, load test file glob
+func.defaultConfig.files.push(testFileGlob);
 
 module.exports = func;
