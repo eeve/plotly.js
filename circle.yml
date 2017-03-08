@@ -23,5 +23,13 @@ dependencies:
 
 test:
   override:
-    - ./tasks/ci_test.sh:
+    - npm run:
         parallel: true
+        files:
+          - test-image
+          - test-image-gl2d
+          - test-export
+          - citest-jasmine
+          - test-bundle
+          - test-syntax
+          - lint
