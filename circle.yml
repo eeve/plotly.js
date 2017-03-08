@@ -1,7 +1,7 @@
 general:
   artifacts:
-      - "build/test_images/"
-      - "build/test_images_diff/"
+    - "build/test_images/"
+    - "build/test_images_diff/"
 
 machine:
   node:
@@ -14,13 +14,9 @@ machine:
 dependencies:
   override:
     - lsb_release -a
-    - curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - sudo dpkg -i google-chrome.deb
-    - sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
-    - rm google-chrome.deb
     - google-chrome --version
-    - npm install
-    - npm prune && npm ls
+    - npm install && npm dedupe && npm prune && npm install
+    - npm ls || true
     - npm run pretest
 
 test:
