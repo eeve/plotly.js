@@ -104,7 +104,10 @@ func.defaultConfig = {
     browsers: ['Chrome_WindowSized'],
 
     // custom browser options
+    //
     // window-size values came from observing default size
+    //
+    // '--ignore-gpu-blacklist' allow to test WebGL on CI (!!!)
     customLaunchers: {
         Chrome_WindowSized: {
             base: 'Chrome',
