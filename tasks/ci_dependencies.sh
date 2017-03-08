@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 case $CIRCLE_NODE_INDEX in
 
     # image tests
