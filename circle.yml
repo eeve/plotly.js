@@ -20,5 +20,5 @@ dependencies:
 
 test:
   override:
-    - ./tasks/ci_test.sh
+    - ./tasks/ci_test.sh:
       parallel: true
