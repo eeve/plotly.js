@@ -12,14 +12,10 @@ machine:
     - docker
 
 dependencies:
-  pre:
-    - eval $(node tasks/docker.js pull)
-  post:
-    - eval $(node tasks/docker.js run)
-    - npm run cibuild
-    - npm run pretest
-    - eval $(node tasks/docker.js setup)
+  override:
+    - npm install
     - npm prune && npm ls
+    - npm run pretest
     - lsb_release -a
     - google-chrome --version
 
