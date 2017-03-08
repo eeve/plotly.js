@@ -5,7 +5,7 @@ case $CIRCLE_NODE_INDEX in
     # image tests
     0)
         npm run test-syntax
-        eslint .
+        npm run lint
         ;;
 
     # jasmine tests
