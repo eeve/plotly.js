@@ -19,7 +19,7 @@ dependencies:
     - npm run pretest
     - eval $(node tasks/docker.js run)
     - npm run cibuild
-#     - eval $(node tasks/docker.js setup)
+    - eval $(node tasks/docker.js setup)
 
 test:
   override:

@@ -4,6 +4,9 @@ case $CIRCLE_NODE_INDEX in
 
     # image tests
     0)
+        npm run test-image
+        npm run test-image-gl2d
+        npm run test-export
         npm run test-syntax
         npm run lint
         ;;
