@@ -54,7 +54,7 @@ func.defaultConfig = {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'browserify'],
+    frameworks: ['jasmine', 'jasmine-spec-tags', 'browserify'],
 
     // list of files / patterns to load in the browser
     //
@@ -119,13 +119,19 @@ func.defaultConfig = {
         extensions: ['.js'],
         watch: !isCI,
         debug: true
+    },
+
+    // unfortunately a few tests don't behave well on CI
+    // using `karma-jasmine-spec-tags`
+    // add @noCI to the spec description to skip a spec on CI
+    client: {
+        tagPrefix: '@',
+        skipTags: isCI ? 'noCI' : null
     }
 };
 
-// inject `window.isCI = true`
-if(isCI) {
-    func.defaultConfig.files.push('./assets/ci_mock.js');
-}
+// inject custom jasmine spec filter
+func.defaultConfig.files.push('./spec_filter.js');
 
 // Add lib/index.js to single-suite runs,
 // to avoid import conflicts due to plotly.js

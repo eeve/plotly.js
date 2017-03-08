@@ -451,13 +451,8 @@ describe('scattermapbox convert', function() {
     }
 });
 
-describe('scattermapbox hover', function() {
+describe('@noCI scattermapbox hover', function() {
     'use strict';
-
-    if(window.isCI) {
-        console.log('suppppppppppp this is on CI skip')
-        return;
-    }
 
     var hoverPoints = ScatterMapbox.hoverPoints;
 
