@@ -23,7 +23,9 @@ dependencies:
 
 test:
   override:
-    - case $CIRCLE_NODE_INDEX in 0) npm run test-image ;; 1) npm run test-jasmine ;; esac:
+    - ./tasks/ci_split.sh "npm run test-image" "npm run test-jasmine":
         parallel: true
-    - case $CIRCLE_NODE_INDEX in 0) npm run test-image-gl2d ;; 1) npm run test-bundle ;; esac:
+    - ./tasks/ci_split.sh "npm run test-image-gl2d" "npm run test-bundle":
+        parallel: true
+    - ./tasks/ci_split.sh "npm run test-image-export" "npm run test-syntax && npm run lint":
         parallel: true
