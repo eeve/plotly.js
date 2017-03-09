@@ -77,7 +77,7 @@ func.defaultConfig = {
     // See note in CONTRIBUTING.md about more verbose reporting via karma-verbose-reporter:
     // https://www.npmjs.com/package/karma-verbose-reporter ('verbose')
     //
-    reporters: ['dots'],
+    reporters: ['dots', 'spec'],
 
     // web server port
     port: 9876,
@@ -127,6 +127,16 @@ func.defaultConfig = {
     client: {
         tagPrefix: '@',
         skipTags: isCI ? 'noCI' : null
+    },
+
+    // use 'karma-spec-reporter' to log info about skipped specs
+    specReporter: {
+        suppressErrorSummary: true,
+        suppressFailed: true,
+        suppressPassed: true,
+        suppressSkipped: false,
+        showSpecTiming: false,
+        failFast: false
     }
 };
 
