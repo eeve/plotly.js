@@ -1,20 +1,21 @@
 #!/bin/bash
 
+EXIT_STATE=0
+
 case $CIRCLE_NODE_INDEX in
 
-    # image tests
     0)
-        npm run test-image
-        npm run test-image-gl2d
-        npm run test-export
-        npm run test-syntax
-        npm run lint
+        npm run test-image      || EXIT_STATE=$?
+        npm run test-image-gl2d || EXIT_STATE=$?
+        npm run test-export     || EXIT_STATE=$?
+        npm run lint            || EXIT_STATE=$?
+        npm run test-syntax     || EXIT_STATE=$?
+        exit $EXIT_STATE
         ;;
 
-    # jasmine tests
     1)
-        npm run citest-jasmine
-        npm run test-bundle
+        npm run citest-jasmine || EXIT_STATE=$?
+        npm run test-bundle    || EXIT_STATE=$?
         ;;
 
 esac
