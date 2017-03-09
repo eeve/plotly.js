@@ -8,14 +8,15 @@ case $CIRCLE_NODE_INDEX in
         npm run test-image      || EXIT_STATE=$?
         npm run test-image-gl2d || EXIT_STATE=$?
         npm run test-export     || EXIT_STATE=$?
-        npm run lint            || EXIT_STATE=$?
         npm run test-syntax     || EXIT_STATE=$?
+        npm run lint            || EXIT_STATE=$?
         exit $EXIT_STATE
         ;;
 
     1)
         npm run citest-jasmine || EXIT_STATE=$?
         npm run test-bundle    || EXIT_STATE=$?
+        exit $EXIT_STATE
         ;;
 
 esac
