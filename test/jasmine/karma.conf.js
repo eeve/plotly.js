@@ -77,7 +77,7 @@ func.defaultConfig = {
     // See note in CONTRIBUTING.md about more verbose reporting via karma-verbose-reporter:
     // https://www.npmjs.com/package/karma-verbose-reporter ('verbose')
     //
-    reporters: ['dots', 'spec'],
+    reporters: isSingleSuiteRun ? ['progress'] : ['dots', 'spec'],
 
     // web server port
     port: 9876,
