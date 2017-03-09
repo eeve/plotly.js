@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 case $CIRCLE_NODE_INDEX in
 
